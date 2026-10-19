@@ -35,7 +35,7 @@ Research draft → claims → sources → evidence → AI assessment
 | 2 — Review domain | claims, evidence, assessments, reviews + history, progress, audit, export, seeded demo | done |
 | 3 — AI pipeline | claim extraction, citation resolution, retrieval, assessment, evaluation | done |
 | 4 — Frontend | review workspace UI | done |
-| 5 — Polish | integration, screenshots, final evaluation | not started |
+| 5 — Polish | integration, screenshots, final evaluation | done |
 
 Live AI runs through Groq (`LLM_PROVIDER=groq`). Without a key, the deterministic
 provider is used: it reproduces the seeded demo's hand-authored fixtures and returns
@@ -198,18 +198,6 @@ LLM calls. `POST /api/claims/{id}/assess` re-assesses one claim and appends to i
 history. Details: [docs/architecture.md](docs/architecture.md#ai-pipeline),
 [docs/api.md](docs/api.md#analyze-a-draft).
 
-### 9. Try the API
-
-With the API running, either step through [docs/requests.http](docs/requests.http)
-(VS Code REST Client / JetBrains HTTP Client) or run:
-
-```bash
-./scripts/demo_flow.sh            # BASE_URL=http://localhost:8000 by default
-RESET=1 ./scripts/demo_flow.sh    # start from a fresh demo
-```
-
-This walks health → demo → claims → KEEP / QUALIFY / REMOVE → progress (3/3) →
-JSON and CSV export → persistence check. Full reference: [docs/api.md](docs/api.md).
 
 ## Frontend
 
