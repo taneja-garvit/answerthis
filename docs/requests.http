@@ -1,0 +1,138 @@
+# Evidence Review Workspace — manual API walkthrough
+#
+# Works with the VS Code "REST Client" extension and JetBrains HTTP Client.
+# Run the requests top to bottom; later requests reuse values captured from
+# earlier responses. Postman users: import the equivalent curl commands from
+# scripts/demo_flow.sh, or follow docs/api.md.
+#
+# Start the API first:  cd backend && .venv/bin/uvicorn app.main:create_app --factory --reload
+
+@baseUrl = http://localhost:8000
+
+### 1. Health check — expect {"status":"ok","database":"connected"}
+GET {{baseUrl}}/health
+
+### 2. Create (or load) the seeded demo. 201 the first time, 200 afterwards.
+#    Add ?reset=true to delete and recreate it (clears saved reviews).
+# @name demo
+POST {{baseUrl}}/api/demo
+
+@projectId = {{demo.response.body.project_id}}
+@draftId = {{demo.response.body.draft_id}}
+
+### 3. Fetch the demo project
+GET {{baseUrl}}/api/projects/{{projectId}}
+
+### 4. Fetch all claims (composite: source, evidence, latest AI assessment, review)
+# @name claims
+GET {{baseUrl}}/api/drafts/{{draftId}}/claims
+
+@claim1 = {{claims.response.body.claims[0].id}}
+@claim2 = {{claims.response.body.claims[1].id}}
+@claim3 = {{claims.response.body.claims[2].id}}
+
+### 5. Fetch one claim (the mortality figure mismatch)
+GET {{baseUrl}}/api/claims/{{claim2}}
+
+### 6. KEEP the supported hospitalization claim
+PUT {{baseUrl}}/api/claims/{{claim1}}/review
+Content-Type: application/json
+
+{
+  "decision": "KEEP",
+  "reviewer_note": "Figure, outcome and comparator match the abstract (OR 0.78, 95% CI 0.70–0.87)."
+}
+
+### 7. QUALIFY the mortality claim, with revised wording
+PUT {{baseUrl}}/api/claims/{{claim2}}/review
+Content-Type: application/json
+
+{
+  "decision": "QUALIFY",
+  "reviewer_note": "Changed 22% to 19% and retained odds terminology.",
+  "revised_claim": "Non-invasive remote patient monitoring was associated with approximately 19% lower odds of death compared with usual care (pooled OR 0.81, 95% CI 0.69–0.95)."
+}
+
+### 8. REMOVE the overgeneralized claim
+PUT {{baseUrl}}/api/claims/{{claim3}}/review
+Content-Type: application/json
+
+{
+  "decision": "REMOVE",
+  "reviewer_note": "Pooled trial estimates do not support benefit for every patient."
+}
+
+### 8b. Validation example — REPLACE without revised_claim returns 422
+PUT {{baseUrl}}/api/claims/{{claim1}}/review
+Content-Type: application/json
+
+{ "decision": "REPLACE" }
+
+### 9. Progress — expect reviewed_claims 3 of 3, is_complete true
+GET {{baseUrl}}/api/projects/{{projectId}}/progress
+
+### 10. Export JSON (structured issues and review history)
+GET {{baseUrl}}/api/projects/{{projectId}}/export?format=json
+
+### 11. Export CSV
+GET {{baseUrl}}/api/projects/{{projectId}}/export?format=csv
+
+### 12. Verify persistence — the decisions are still there on a fresh read
+GET {{baseUrl}}/api/projects/{{projectId}}/audit
+
+#######################################################################
+# Phase 3 — AI pipeline
+# With LLM_PROVIDER=groq these requests use your Groq quota:
+# analyze ≈ 1 + (number of claims) calls; reassess = 1 call.
+#######################################################################
+
+### 13. New project for a live analysis
+# @name p3project
+POST {{baseUrl}}/api/projects
+Content-Type: application/json
+
+{ "title": "Heart-failure RPM — live analysis" }
+
+@p3ProjectId = {{p3project.response.body.id}}
+
+### 14. Paste a draft with a numbered reference list
+# @name p3draft
+POST {{baseUrl}}/api/projects/{{p3ProjectId}}/drafts
+Content-Type: application/json
+
+{
+  "original_text": "Non-invasive remote patient monitoring (RPM) was associated with lower odds of first heart-failure hospitalization compared with usual care (pooled OR 0.78) [1]. It lowered the odds of death by 22% [1]. It works for every heart-failure patient [1].\n\n[1] De Lathauwer ILJ, Nieuwenhuys WW, Hafkamp F, et al. Remote patient monitoring in heart failure: a comprehensive meta-analysis of effective programme components for hospitalization and mortality reduction. Eur J Heart Fail. 2025;27(9):1670-1685. doi:10.1002/ejhf.3568"
+}
+
+@p3DraftId = {{p3draft.response.body.id}}
+
+### 15. Analyze (synchronous: extraction → DOI resolution → evidence → assessment)
+#    Add {"refresh_metadata": true} to bypass the DOI cache and hit Crossref/OpenAlex.
+# @name analysis
+POST {{baseUrl}}/api/drafts/{{p3DraftId}}/analyze
+Content-Type: application/json
+
+{}
+
+@p3Claim = {{analysis.response.body.claims[1].id}}
+
+### 16. Analyze again — expect rerun=true, claims_reused=N, llm_calls=0
+POST {{baseUrl}}/api/drafts/{{p3DraftId}}/analyze
+
+### 17. Re-assess one claim (appends a new assessment; reviews are kept)
+POST {{baseUrl}}/api/claims/{{p3Claim}}/assess
+Content-Type: application/json
+
+{}
+
+### 18. Explicit marker → DOI mapping (overrides the reference list)
+POST {{baseUrl}}/api/drafts/{{p3DraftId}}/analyze
+Content-Type: application/json
+
+{ "citations": { "1": "10.1002/ejhf.3568" } }
+
+### 19. Re-extract (409 reviews_exist once any claim has a human decision)
+POST {{baseUrl}}/api/drafts/{{p3DraftId}}/analyze
+Content-Type: application/json
+
+{ "mode": "reextract" }

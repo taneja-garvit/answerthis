@@ -1,0 +1,81 @@
+{
+  "doi": "10.1002/ejhf.3568",
+  "title": "Remote Patient Monitoring in Heart Failure: A Comprehensive Meta-Analysis of Effective Programme Components for Hospitalization and Mortality Reduction",
+  "authors": [
+    {
+      "given": "Ignace L.J.",
+      "family": "De Lathauwer",
+      "orcid": "https://orcid.org/0009-0008-6639-9428"
+    },
+    {
+      "given": "Wessel W.",
+      "family": "Nieuwenhuys",
+      "orcid": null
+    },
+    {
+      "given": "Frederique",
+      "family": "Hafkamp",
+      "orcid": null
+    },
+    {
+      "given": "Marta",
+      "family": "Regis",
+      "orcid": null
+    },
+    {
+      "given": "Rutger W.M.",
+      "family": "Brouwers",
+      "orcid": null
+    },
+    {
+      "given": "Mathias",
+      "family": "Funk",
+      "orcid": null
+    },
+    {
+      "given": "Hareld M.C.",
+      "family": "Kemps",
+      "orcid": null
+    }
+  ],
+  "journal": "European Journal of Heart Failure",
+  "publisher": "Oxford University Press (OUP)",
+  "volume": "27",
+  "issue": "9",
+  "pages": "1670-1685",
+  "publication_year": 2025,
+  "published_online": "2025-01-20",
+  "work_type": "review",
+  "abstract_sections": [
+    {
+      "title": "Aims",
+      "text": "Methods of non-invasive remote patient monitoring (RPM) for heart failure (HF) remain diverse. Understanding factors that influence the effectiveness of RPM on HF-related and all-cause hospitalizations, mortality, and emergency department visits is crucial for developing successful RPM interventions. This meta-analysis aims to synthesize and compare existing literature on RPM components that impact HF-related and all-cause hospitalizations, mortality and emergency department visits in HF patients."
+    },
+    {
+      "title": "Methods and results",
+      "text": "A systematic search of electronic databases (PubMed, EMBASE, CENTRAL) identified randomized controlled trials from January 2012 to June 2023, comparing non-invasive RPM interventions for HF with usual care. A random-effects meta-analysis assessed outcomes, and additional analyses identified effective RPM components. A total of 41 studies with 16 312 patients (mean follow-up: 9.88 ± 6.37 months) were included. RPM was associated with lower mortality risk (pooled odds ratio [OR] 0.81 95% confidence interval [CI] 0.69–0.95; I2 = 0.39) and reduced first HF hospitalization risk (pooled OR 0.78, 95% CI: 0.70–0.87; I2 = 0.21) compared to usual care. RPM interventions with a self-management module (p < 0.001) and education module (p = 0.028) significantly lowered HF-related hospitalizations. Video calls during RPM interventions further reduced HF-related (p = 0.047) and all-cause hospitalizations (p < 0.001)."
+    },
+    {
+      "title": "Conclusion",
+      "text": "This meta-analysis confirms the efficacy of RPM in reducing HF-related hospitalizations and mortality. Effective components include self-management, education modules, and video communication. However, heterogeneity among interventions challenges the overall evaluation. Modernizing RPM with advanced technologies like non-invasive sensors, artificial intelligence, and cardiac telerehabilitation could enhance its potential."
+    }
+  ],
+  "abstract": "Methods of non-invasive remote patient monitoring (RPM) for heart failure (HF) remain diverse. Understanding factors that influence the effectiveness of RPM on HF-related and all-cause hospitalizations, mortality, and emergency department visits is crucial for developing successful RPM interventions. This meta-analysis aims to synthesize and compare existing literature on RPM components that impact HF-related and all-cause hospitalizations, mortality and emergency department visits in HF patients. A systematic search of electronic databases (PubMed, EMBASE, CENTRAL) identified randomized controlled trials from January 2012 to June 2023, comparing non-invasive RPM interventions for HF with usual care. A random-effects meta-analysis assessed outcomes, and additional analyses identified effective RPM components. A total of 41 studies with 16 312 patients (mean follow-up: 9.88 ± 6.37 months) were included. RPM was associated with lower mortality risk (pooled odds ratio [OR] 0.81 95% confidence interval [CI] 0.69–0.95; I2 = 0.39) and reduced first HF hospitalization risk (pooled OR 0.78, 95% CI: 0.70–0.87; I2 = 0.21) compared to usual care. RPM interventions with a self-management module (p < 0.001) and education module (p = 0.028) significantly lowered HF-related hospitalizations. Video calls during RPM interventions further reduced HF-related (p = 0.047) and all-cause hospitalizations (p < 0.001). This meta-analysis confirms the efficacy of RPM in reducing HF-related hospitalizations and mortality. Effective components include self-management, education modules, and video communication. However, heterogeneity among interventions challenges the overall evaluation. Modernizing RPM with advanced technologies like non-invasive sensors, artificial intelligence, and cardiac telerehabilitation could enhance its potential.",
+  "license": {
+    "name": "CC BY-NC-ND 4.0",
+    "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+  },
+  "open_access": {
+    "is_oa": true,
+    "oa_status": "hybrid",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/ejhf.3568",
+    "landing_page_url": "https://doi.org/10.1002/ejhf.3568"
+  },
+  "openalex_id": "https://openalex.org/W4406685539",
+  "provenance": {
+    "metadata_and_abstract": "Crossref REST API https://api.crossref.org/works/10.1002/ejhf.3568",
+    "open_access_status": "OpenAlex API https://api.openalex.org/works/https://doi.org/10.1002/ejhf.3568",
+    "retrieved_at": "2026-10-19",
+    "notes": "Abstract text is reproduced verbatim (JATS markup stripped, HTML entities decoded) under the article's CC BY-NC-ND 4.0 licence with attribution. No full text is stored."
+  }
+}

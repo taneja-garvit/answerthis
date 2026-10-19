@@ -1,0 +1,158 @@
+{
+ "status": "ok",
+ "message-type": "work",
+ "message": {
+  "DOI": "10.1002/ejhf.3568",
+  "title": [
+   "Remote Patient Monitoring in Heart Failure: A Comprehensive Meta-Analysis of Effective Programme Components for Hospitalization and Mortality Reduction"
+  ],
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0009-0008-6639-9428",
+    "authenticated-orcid": false,
+    "given": "Ignace L.J.",
+    "family": "De Lathauwer",
+    "sequence": "first",
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Wessel W.",
+    "family": "Nieuwenhuys",
+    "sequence": "additional",
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Frederique",
+    "family": "Hafkamp",
+    "sequence": "additional",
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Marta",
+    "family": "Regis",
+    "sequence": "additional",
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Rutger W.M.",
+    "family": "Brouwers",
+    "sequence": "additional",
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Mathias",
+    "family": "Funk",
+    "sequence": "additional",
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Hareld M.C.",
+    "family": "Kemps",
+    "sequence": "additional",
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "container-title": [
+   "European Journal of Heart Failure"
+  ],
+  "publisher": "Oxford University Press (OUP)",
+  "published": {
+   "date-parts": [
+    [
+     2025,
+     1,
+     20
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2025,
+     1,
+     20
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2025,
+     9,
+     1
+    ]
+   ]
+  },
+  "abstract": "<jats:title>Abstract</jats:title>\n                  <jats:sec>\n                    <jats:title>Aims</jats:title>\n                    <jats:p>Methods of non-invasive remote patient monitoring (RPM) for heart failure (HF) remain diverse. Understanding factors that influence the effectiveness of RPM on HF-related and all-cause hospitalizations, mortality, and emergency department visits is crucial for developing successful RPM interventions. This meta-analysis aims to synthesize and compare existing literature on RPM components that impact HF-related and all-cause hospitalizations, mortality and emergency department visits in HF patients.</jats:p>\n                  </jats:sec>\n                  <jats:sec>\n                    <jats:title>Methods and results</jats:title>\n                    <jats:p>A systematic search of electronic databases (PubMed, EMBASE, CENTRAL) identified randomized controlled trials from January 2012 to June 2023, comparing non-invasive RPM interventions for HF with usual care. A random-effects meta-analysis assessed outcomes, and additional analyses identified effective RPM components. A total of 41 studies with 16 312 patients (mean follow-up: 9.88 ± 6.37 months) were included. RPM was associated with lower mortality risk (pooled odds ratio [OR] 0.81 95% confidence interval [CI] 0.69–0.95; I2 = 0.39) and reduced first HF hospitalization risk (pooled OR 0.78, 95% CI: 0.70–0.87; I2 = 0.21) compared to usual care. RPM interventions with a self-management module (p &amp;lt; 0.001) and education module (p = 0.028) significantly lowered HF-related hospitalizations. Video calls during RPM interventions further reduced HF-related (p = 0.047) and all-cause hospitalizations (p &amp;lt; 0.001).</jats:p>\n                  </jats:sec>\n                  <jats:sec>\n                    <jats:title>Conclusion</jats:title>\n                    <jats:p>This meta-analysis confirms the efficacy of RPM in reducing HF-related hospitalizations and mortality. Effective components include self-management, education modules, and video communication. However, heterogeneity among interventions challenges the overall evaluation. Modernizing RPM with advanced technologies like non-invasive sensors, artificial intelligence, and cardiac telerehabilitation could enhance its potential.</jats:p>\n                  </jats:sec>",
+  "license": [
+   {
+    "start": {
+     "date-parts": [
+      [
+       2026,
+       2,
+       18
+      ]
+     ],
+     "date-time": "2026-02-18T00:00:00Z",
+     "timestamp": 1771372800000
+    },
+    "content-version": "vor",
+    "delay-in-days": 394,
+    "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+   },
+   {
+    "start": {
+     "date-parts": [
+      [
+       2025,
+       1,
+       20
+      ]
+     ],
+     "date-time": "2025-01-20T00:00:00Z",
+     "timestamp": 1737331200000
+    },
+    "content-version": "vor",
+    "delay-in-days": 0,
+    "URL": "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+   }
+  ],
+  "type": "journal-article"
+ }
+}
